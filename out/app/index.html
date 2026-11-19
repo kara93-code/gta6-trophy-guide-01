@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <h1>LEONIDA PLATINUM</h1>
+    <p class="subtitle">Grand Theft Auto VI — PlayStation 5 trophy guide &amp; tracker. All 55 official
+    trophies: 1 platinum, 2 gold, 6 silver, 46 bronze. Names, descriptions and grades as
+    PlayStation publishes them; every guide in our own words, with its sources named.</p>
+  </div>
+  <div class="platinum-box" id="platinumBox" aria-live="polite">
+    <div class="platinum-count"><span id="earnedCount">0</span><span class="of">/ 55</span></div>
+    <div class="platinum-bar"><div class="platinum-fill" id="platinumFill"></div></div>
+    <p class="platinum-label" id="platinumLabel">0% to the platinum</p>
+    <p class="grade-counts" id="gradeCounts"></p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <a href="#checklist" data-view="checklist" class="tab">Checklist</a>
+  <a href="#roadmap" data-view="roadmap" class="tab">Roadmap to Platinum</a>
+  <a href="#missables" data-view="missables" class="tab">Missables <span class="tab-count" id="missableTabCount"></span></a>
+  <a href="#planner" data-view="planner" class="tab">Planner &amp; Save</a>
+</nav>
+
+<section id="view-checklist" class="view">
+  <div class="toolbar">
+    <input id="searchBox" type="search" placeholder="Search trophies, missions, collectibles…" aria-label="Search trophies">
+    <div class="chips" id="kindChips" role="group" aria-label="Filter by kind">
+      <button type="button" data-kind="all" class="chip active">All</button>
+      <button type="button" data-kind="story" class="chip">Story</button>
+      <button type="button" data-kind="missable" class="chip">Missable</button>
+      <button type="button" data-kind="collectible" class="chip">Collectibles</button>
+      <button type="button" data-kind="activity" class="chip">Activities</button>
+      <button type="button" data-kind="online" class="chip">Online</button>
+    </div>
+    <label class="grade-pick">Grade
+      <select id="gradeFilter">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label class="switch"><input id="spoilerToggle" type="checkbox" checked> Hide story spoilers</label>
+    <label class="switch"><input id="earnedOnlyToggle" type="checkbox"> Earned only</label>
+  </div>
+  <p class="spoiler-note" id="spoilerNote">Spoiler protection is ON: story trophies you have not earned yet show as
+  “Hidden trophy” until you tick them off. Turn it off to see every name and description.</p>
+  <div class="checklist-layout">
+    <main class="trophy-list" id="trophyList" aria-live="polite"></main>
+    <aside class="detail" id="detailPanel" aria-label="Trophy guide detail"></aside>
+  </div>
+</section>
+
+<section id="view-roadmap" class="view" hidden>
+  <h2>Roadmap to the platinum</h2>
+  <p class="view-intro">The order to earn them in, built from the official descriptions: which story
+  chapters and missions first, then the finale and 100% completion, then activities and
+  skills, then collectibles and cleanup. Each stage shows its own progress — finish a
+  stage before the next one where the guide says so.</p>
+  <div class="roadmap" id="roadmapStages"></div>
+</section>
+
+<section id="view-missables" class="view" hidden>
+  <h2>Missable trophies — do these when you see them</h2>
+  <p class="view-intro">A trophy is flagged missable when its official description ties it to a single
+  story moment or a one-off situation with no stated way to repeat it. Mission replay in
+  GTA VI is unconfirmed, so treat every flagged trophy as “do it when you see it”.
+  Flags are our own reading of the official descriptions — not verified in-game.</p>
+  <div class="missable-list" id="missableList"></div>
+</section>
+
+<section id="view-planner" class="view" hidden>
+  <h2>Planner &amp; save</h2>
+  <div class="planner-grid">
+    <div class="planner-card" id="nextUpCard">
+      <h3>Next up</h3>
+      <p class="card-hint">The three earliest roadmap trophies you have not earned yet.</p>
+      <ol class="next-up" id="nextUpList"></ol>
+    </div>
+    <div class="planner-card">
+      <h3>Progress by stage</h3>
+      <div id="stageProgress"></div>
+    </div>
+    <div class="planner-card">
+      <h3>Your save file</h3>
+      <p class="card-hint">Progress, notes and settings live in this browser (localStorage).
+      Export a backup file, or import one to restore it on another machine.</p>
+      <div class="save-buttons">
+        <button id="exportBtn" type="button">Export progress (.json)</button>
+        <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      </div>
+      <p class="save-status" id="saveStatus">No backup exported yet this session.</p>
+    </div>
+    <div class="planner-card">
+      <h3>Target date</h3>
+      <p class="card-hint">Pick the day you want the platinum by — the planner works out how many
+      trophies a day that means.</p>
+      <label class="target-row">Platinum by <input id="targetDate" type="date"></label>
+      <p class="target-result" id="targetResult">Choose a date to see your daily pace.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="sources">
+  <h3>Where every fact comes from</h3>
+  <p><strong>Names, descriptions and grades:</strong> the official PlayStation 5 list as
+  mirrored by Exophase and PSNProfiles (the two agree on all 55). <strong>Counts</strong>
+  (42 Shooting Range challenges, 14 drone-race locations, 18 meditation spots, 100 WAiNK
+  locations, 100 vehicles, 52 areas, 9 gangs, 8 garages, 500 choices) come from the
+  official descriptions themselves. <strong>Guides:</strong> written for this entry in our
+  own words from those descriptions — locations and steps we could not confirm are
+  marked “not verified in-game” rather than guessed. <strong>Hidden flags</strong> follow
+  the PSN listing (28 hidden). No Rockstar logo, artwork, box art or game screenshot is
+  used anywhere in this guide; the look is our own.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
